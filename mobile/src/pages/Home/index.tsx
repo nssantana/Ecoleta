@@ -38,9 +38,10 @@ const Home = () =>{
               placeholder="Digite a UF"
               value={uf}
               maxLength={2}
-              autoCapitalize="characters"
+              autoCapitalize='characters'
               autoCorrect={false}
-              onChangeText={setUf}/>
+              onChangeText={setUf}
+              />
               <TextInput 
               style={styles.input}
               placeholder="Digite a cidade "

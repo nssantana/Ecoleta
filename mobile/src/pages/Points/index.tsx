@@ -19,7 +19,7 @@ interface Point{
   id:number,
   name:string,
   imagem:string,
-  imagem_url: string, 
+  imagem_url:string, 
   latitude:number,
   longitude:number,  
 }
@@ -120,13 +120,13 @@ const Points = () =>{
                             style={styles.mapMarker}
                             onPress={()=>handleToDetail(point.id)}
                             coordinate={{
-                                latitude: -23.686576,
-                                longitude:-46.3452771,
+                                latitude: point.latitude,
+                                longitude: point.longitude,
                                 }}
                             >
                                 <View style={styles.mapMarkerContainer}>
                                 <Image style={styles.mapMarkerImage} source={{ uri: point.imagem_url}}/>
-                              <Text>{point.name}</Text>
+                                <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                                 </View>
                             </Marker>
                           ))}
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
       flex: 1,
       fontFamily: 'Roboto_400Regular',
       color: '#FFF',
-      fontSize: 13,
+      fontSize: 10,
       lineHeight: 23,
     },
   

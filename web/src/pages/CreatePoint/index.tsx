@@ -76,8 +76,6 @@ const CreatePoint = () =>{
     function handleSelectUf(event: ChangeEvent<HTMLSelectElement>){
         const uf = event.target.value
         setSelectedUf(uf)
-        console.log(uf)
-        
     }
 
     function handleSelectCity(event: ChangeEvent<HTMLSelectElement>){
@@ -110,12 +108,11 @@ const CreatePoint = () =>{
 
         const {name,email,whatsapp} = formData
         const uf = selectedUf
-        const city=selectedCity
-        const [latitude, longitude]=selectedPosition
+        const city = selectedCity
+        const [latitude, longitude]= selectedPosition
         const items = selectedItems
 
         const data = new FormData()
-
        
             data.append('name',name)
             data.append('email',email)
@@ -125,16 +122,14 @@ const CreatePoint = () =>{
             data.append('latitude',String(latitude))
             data.append('longitude',String(longitude))
             data.append('items', items.join(','))
-
+            
             if(selectedFile){
                 data.append('image', selectedFile)
             }
-      
-
+            
         await api.post('points',data)
         alert('Ponto de coleta criado!!!')
         history.push('/')
-
     }
 
     return (

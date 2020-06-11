@@ -15,7 +15,7 @@ const itemsController = new ItemsController()
 routes.get('/items',itemsController.index)
 
 routes.post('/points',
-            upload.single('imagem'),
+            upload.single('image'),
             celebrate({
                 body: Joi.object().keys({
                     name: Joi.string().required(),
@@ -23,9 +23,9 @@ routes.post('/points',
                     whatsapp: Joi.number().required(),
                     latitude: Joi.number().required(),
                     longitude: Joi.number().required(),
-                    city: Joi.number().required(),
-                    uf: Joi.number().required().max(2),
-                    items: Joi.number().required(),
+                    city: Joi.string().required(),
+                    uf: Joi.string().required().max(2),
+                    items: Joi.string().required(),
                 })
             },{
                 abortEarly: false

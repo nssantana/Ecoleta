@@ -20,7 +20,7 @@ async index(request: Request, response: Response) {
     const serializedPoints = points.map(points=>{
         return {
             ...points,
-            image_url: `https://192.168.0.5:3333/uploads/${points.imagem }`,
+            imagem_url: `http://192.168.0.5:3333/uploads/${points.imagem}`,
         }
     })
 
@@ -38,7 +38,7 @@ async index(request: Request, response: Response) {
 
         const serializedPoint = {
                 ...point,
-                image_url: `http://192.168.0.5:3333/uploads/${point.imagem }`,
+                imagem_url: `http://192.168.0.5:3333/uploads/${point.imagem}`,
         }
 
         const items= await knex('items')
@@ -50,6 +50,7 @@ async index(request: Request, response: Response) {
     }
 
     async create(request: Request, response:Response){
+              
         const {
             name,
             email,
@@ -73,6 +74,7 @@ async index(request: Request, response: Response) {
             city,
             uf
         }
+        
 
         const insertedIds = await trx('points').insert(point)
 
